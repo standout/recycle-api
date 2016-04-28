@@ -11,9 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160428130911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "recycle_locations", force: :cascade do |t|
+    t.string   "name",                     null: false
+    t.integer  "kind",                     null: false
+    t.text     "materials",   default: [], null: false, array: true
+    t.float    "latitude",                 null: false
+    t.float    "longitude",                null: false
+    t.string   "street_name"
+    t.string   "zip_code"
+    t.string   "city"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
 end
