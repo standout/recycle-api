@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'json_matchers', '~> 0.5'
+  gem 'database_cleaner', '~> 1.5'
 end
 
 group :production do
