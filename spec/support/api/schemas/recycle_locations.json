@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": ["recycle_locations"],
+  "properties": {
+    "recycle_locations": {
+      "type": "array",
+      "items": {
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "materials",
+          "latitude",
+          "longitude",
+          "street_name",
+          "zip_code",
+          "city",
+          "created_at",
+          "updated_at"
+        ],
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "kind": { "type": "string" },
+          "materials": { "type": "array", "items": { "type": "string" } },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" },
+          "street_name": { "type": "string" },
+          "zip_code": { "type": "string" },
+          "city": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

@@ -34,6 +34,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'json_matchers', '~> 0.5'
+end
+
 group :production do
   # Makes running your Rails app easier. Based on the ideas behind 12factor.net
   # Required by Heroku for Rails deployment.
