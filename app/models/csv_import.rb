@@ -26,7 +26,7 @@ class CSVImport
     private
 
     def kind(name)
-      name.include?('ÅVC') ? :recycle_central : :recycle_station
+      name.include?('ÅVC') ? :recycle_center : :recycle_station
     end
 
     def checked?(value)
