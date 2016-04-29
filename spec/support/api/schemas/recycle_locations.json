@@ -25,9 +25,12 @@
           "materials": { "type": "array", "items": { "type": "string" } },
           "latitude": { "type": "number" },
           "longitude": { "type": "number" },
+          "bearing": { "type": "string" },
+          "distance": { "type": "float" },
           "street_name": { "type": "string" },
           "zip_code": { "type": "string" },
           "city": { "type": "string" },
+          "opening_hours": { "type": "json" },
           "created_at": { "type": "string", "format": "date-time" },
           "updated_at": { "type": "string", "format": "date-time" }
         }
