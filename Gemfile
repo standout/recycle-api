@@ -20,6 +20,12 @@ gem 'jbuilder', '~> 2.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# Complete Ruby geocoding solution. http://www.rubygeocoder.com
+gem 'geocoder', '~> 1.3'
+
+# A collection of Rack middleware to support JSON Schema.
+# https://github.com/interagent/committee
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
