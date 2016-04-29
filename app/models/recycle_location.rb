@@ -1,6 +1,6 @@
 class RecycleLocation < ApplicationRecord
-  KINDS = %i(recycle_center recycle_station)
-  MATERIALS = %w(glass cardboard plastic magazines metal)
+  KINDS = %i(recycle_center recycle_station).freeze
+  MATERIALS = %w(glass cardboard plastic magazines metal).freeze
 
   enum kind: KINDS
 

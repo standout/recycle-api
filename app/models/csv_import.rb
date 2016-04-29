@@ -33,6 +33,8 @@ class CSVImport
       value == 'x'
     end
 
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def create_from(row)
       attributes = {}
       attributes[:name]      = row['Åvs']
