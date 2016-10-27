@@ -1,4 +1,7 @@
 class RecycleLocationsController < ApplicationController
+  COMPARABLE_ATTRIBUTES = %w(kind materials latitude longitude street_name zip_code city opening_hours).freeze
+  before_action :authenticate_with_token, only: [:update]
+
   def index
     if params[:latitude].present? && params[:longitude].present?
       @recycle_locations =
@@ -9,30 +12,21 @@ class RecycleLocationsController < ApplicationController
   end
 
   def update
-    # Get relevant attributes from parameters
-    change_params = params.except(:controller, :action, :id, :recycle_location)
+    hash = params.to_h
 
-    # Make change variable that holds new data
-    change = RecycleLocationChange.new
-    change.reference_id = params[:id]
-    
-    # For each patched parameter add to change entry
-    change_params.each do |k, v|
-      # If is single value replace key
-      if !v.is_a? (Array)
-        change[k] = v
-      # If is array replace respective value
-      elsif v.is_a? (Array)
-        v.each_with_index do |v, i|
-          change[k][i] = v
-        end
-      end
-    end
-
-    # Save change to database
-    change.save
-
+    # Merge change with recycle location
+    RecycleLocationChange.find(hash['change_id']).apply(hash)
     head :ok
+  end
+
+  def get_pending_changes
+    all_changes = RecycleLocationChange.all
+    @differences = []
+
+    # Return all differences from pending changes
+    all_changes.each do |change|
+      @differences << change.compare
+    end
   end
 
   private

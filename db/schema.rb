@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022072353) do
+ActiveRecord::Schema.define(version: 20161027080240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email"
+    t.string   "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "recycle_location_changes", force: :cascade do |t|
     t.string   "name"
@@ -28,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161022072353) do
     t.datetime "created_at",                                                  null: false
     t.datetime "updated_at",                                                  null: false
     t.text     "opening_hours", default: [nil, nil, nil, nil, nil, nil, nil],              array: true
-    t.integer  "reference_id",                                                null: false
+    t.integer  "location_id",                                                 null: false
   end
 
   create_table "recycle_locations", force: :cascade do |t|
