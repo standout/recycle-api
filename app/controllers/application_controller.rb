@@ -1,15 +1,8 @@
 class ApplicationController < ActionController::API
   def authenticate_with_token
-    hash = params.permit!.to_h
+    hash = JWT.decode(params['admin_token'], Rails.application.secrets.jwt_auth_secret, "HS256")[0] # <= Returns array
+    current_user = User.find_by(email: hash['email']).try(:authenticate, hash['password'])
 
-    begin
-      email = hash['email']
-      token = hash['admin_token']
-      user_secret = Admin.find_by(email: email).secret
-
-      decoded_token = JWT.decode(token, user_secret, 'H256')
-    rescue
-      raise "Unauthorized"
-    end
+    head :unauthorized unless current_user && hash['exp'] > Time.now.to_i
   end
 end

@@ -1,5 +1,4 @@
 class RecycleLocationsController < ApplicationController
-  COMPARABLE_ATTRIBUTES = %w(kind materials latitude longitude street_name zip_code city opening_hours).freeze
   before_action :authenticate_with_token, only: [:update]
 
   def index
@@ -12,7 +11,7 @@ class RecycleLocationsController < ApplicationController
   end
 
   def update
-    hash = params.to_h
+    hash = params.permit!.to_h
 
     # Merge change with recycle location
     RecycleLocationChange.find(hash['change_id']).apply(hash)

@@ -5,8 +5,10 @@ class RecycleLocationChangesController < ApplicationController
     change.import_from_params(params)
 
     # Save change to database
-    change.save
-
-    head :ok
+    if change.save
+      head :ok
+    else
+      head :bad_request
+    end
   end
 end
