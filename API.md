@@ -37,15 +37,8 @@ To get nearby recycle locations you make a `GET` request containing longitude an
 
 	**Code:** 200
 
-    **Content:**
+    **Content example:**
 
-    `JSON` array containing all the nearby recycle locations.
-
-* **Example**
-
-	**Command:** `curl '/recycle_locations/longitude=15&latitude=56'`
-
-    **Returns:**
   	```
     {
         "recycle_locations" : [
@@ -129,10 +122,6 @@ A change request can be sent to the API. The request will be saved and applied o
 		}
     ```
 
-    **Request**
-
-    `curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{ Content }' '/change_request/1337'`
-
     *Would request a change to the recycle location with id 1337. The request suggests that the town name is Elite and that the recycle location opens at 13:37 on saturdays.*
 
 
@@ -156,10 +145,6 @@ To get all queued changes you can make a `GET` request to the API.
     **Content:**
 
     A `JSON` array containing all queued changes.
-
-* **Example**
-
-	**Command:** `curl '/pending_changes'`
 
  	**Returns:**
 	```
@@ -239,8 +224,6 @@ Authorisation has to be made before any recycle locations entries can be [update
     }
     ```
 
-	**Command:** `curl -X PUT -H "Accept: application/json" -H "Content-Type: application/json" -d '{ Content }' '/authenticate'`
-
     **Returns:**
 
     ```
@@ -294,14 +277,8 @@ Authorisation has to be made before any recycle locations entries can be [update
     }
     ```
 
-	**Command:** `curl -X PUT -H "Accept: application/json" -H "Content-Type: application/json" -d '{ Content }' '/apply_change'`
-
     *This will apply the marked changes to the change request with id 123. This will only happen if the auth_token is valid.*
 
 * **Notes**
 
 	* Change requests are customized to work with html forms, each indivudal change represented by a checkbox. Therefore a non empty string will apply that change whilst an empty string wont.
-
-
-
- 
