@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users
 
+  get '/change_request/:recycle_location_id', to: 'recycle_location_changes#create'
+  
   resources :recycle_locations do
     resources :recycle_location_changes, only: :create
   end
