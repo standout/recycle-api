@@ -1,7 +1,7 @@
 # API Documentation
 
 Sorteramera is an application made for listing the nearest recycle locations.
-This is the documentation for the Sortera Mera API. All info is obtainable without [authorization](#Authorisation), however updating entries can only be done by admins.
+This is the documentation for the Sortera Mera API. All info is obtainable without [authorization](#authorisation), however updating entries can only be done by admins.
 
 ### Terminology
 
@@ -80,7 +80,7 @@ To get nearby recycle locations you make a `GET` request containing longitude an
 
 ## Submit a change request
 
-A change request can be sent to the API. The request will be saved and applied on [admin confirmation](#Apply-change-request).
+A change request can be sent to the API. The request will be saved and applied on [admin confirmation](#apply-change-request).
 
 * **URL**
 
@@ -178,11 +178,11 @@ To get all queued changes you can make a `GET` request to the API.
 	* *Each returned object in the array will contain changes specific to the corresponding recycle location.*
 	* *The 'info' key contains information about the change request.*
 	* Array changes comes formatted. For example a change to `opening_hours[0]` would be returned with the key `opening_hours_mon`.
-	* The `change_id` value is used when you want to [apply the change](#Apply-change-request).
+	* The `change_id` value is used when you want to [apply the change](#apply-change-request).
 
 ## Authorisation
 
-Authorisation has to be made before any recycle locations entries can be [updated](#Apply-change-request). By sending a `POST` request to the API; containing user email and password, you will be provided with an authorisation token. The token will be required when making any entry update. The token lasts for 24 hours.
+Authorisation has to be made before any recycle locations entries can be [updated](#apply-change-request). By sending a `POST` request to the API; containing user email and password, you will be provided with an authorisation token. The token will be required when making any entry update. The token lasts for 24 hours.
 
 ### Get admin token
 
@@ -235,7 +235,7 @@ Authorisation has to be made before any recycle locations entries can be [update
 
  ## Apply change request
 
- To apply a change request you must provide a valid token. See [previous](#Authorisation) article to see how you can obtain a token.
+ To apply a change request you must provide a valid token. See [previous](#authorisation) article to see how you can obtain a token.
 
  * **URL**
 
