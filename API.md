@@ -1,7 +1,7 @@
 # API Documentation
 
 Sorteramera is an application made for listing the nearest recycle locations.
-This is the documentation for the Sortera Mera API. All info is obtainable without [authorization](#authorisation), however updating entries can only be done by admins.
+This is the documentation for the Sortera Mera API. All info is obtainable without [authorisation](#authorisation), however updating entries can only be done by admins.
 
 ### Terminology
 
