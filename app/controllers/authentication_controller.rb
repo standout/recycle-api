@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
 
       render json: { auth_token: token }
     else
-      head :unauthorized
+      respond_with( { message: "Wrong email or password." } )
     end
   end
 end

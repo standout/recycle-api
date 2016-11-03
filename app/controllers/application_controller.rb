@@ -14,4 +14,8 @@ class ApplicationController < ActionController::API
       format.json { render json: object }
     end
   end
+
+  def error_message(error, message)
+    { error: error, message: message }
+  end
 end
