@@ -29,6 +29,9 @@ gem 'jwt', '~> 1.5', '>= 1.5.6'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Serialize active model
+gem 'activemodel-serializers-xml'
+
 # A collection of Rack middleware to support JSON Schema.
 # https://github.com/interagent/committee
 

@@ -8,6 +8,8 @@ class RecycleLocationsController < ApplicationController
     else
       head :bad_request
     end
+
+    respond_with(@recycle_locations)
   end
 
   def update
@@ -26,6 +28,8 @@ class RecycleLocationsController < ApplicationController
     all_changes.each do |change|
       @differences << change.compare
     end
+
+    respond_with(@differences)
   end
 
   private
