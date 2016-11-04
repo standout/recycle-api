@@ -4,7 +4,7 @@ class Validation
     # Match string that looks like <numbers> <dot> <numbers> or <numbers>
     # Also means <dot> <numbers> won't evaluate to true
     def is_numerical?(string)
-      /^(\d+[,.]?\d+)$/ === string
+      !!Float(string) rescue false
     end
   end
 end

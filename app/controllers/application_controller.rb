@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def error_message(error, message)
-    { error: error, message: message }
+  def respond_with_error(message)
+    respond_with( { error: true, message: message } )
   end
 end

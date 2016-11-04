@@ -1,3 +1,5 @@
+require 'exceptions.rb'
+
 class RecycleLocationsController < ApplicationController
   before_action :authenticate_with_token, only: [:update]
 
@@ -8,10 +10,8 @@ class RecycleLocationsController < ApplicationController
       RecycleLocation.near([latitude, longitude], 40, units: :km).limit(75)
     respond_with(@recycle_locations)
 
-    rescue Exceptions::CoordinatesNotPresent => e
-      respond_with( error_message(e, "No coordinates provided in params") )
-    rescue Exceptions::CoordinatesNotNumerical => e
-      respond_with( error_message(e, "Coordinates not numerical") )
+    rescue CoordinatesNotPresent, CoordinatesNotNumerical => message
+      respond_with_error message
   end
 
   def update
@@ -22,8 +22,8 @@ class RecycleLocationsController < ApplicationController
 
     head :ok
 
-    rescue ActiveRecord::RecordNotFound => e
-      respond_with( error_message(e, "Specified change not found") )
+    rescue ActiveRecord::RecordNotFound => message
+      respond_with_error message
   end
 
   def get_pending_changes
